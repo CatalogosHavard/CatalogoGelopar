@@ -1,5 +1,6 @@
 // --- ¡IMPORTANTE! ---
-const GOOGLE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTzsalmKmMs0A7Uo3JeO76oJVjWMotKYiFl3d4HuuLJ0oejUt_yO-plTgY4GiJdP8bo8-tGZXPlwtd4/pub?gid=0&single=true&output=csv';
+// Pegá acá tu NUEVA URL que termina en output=tsv
+const GOOGLE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTzsalmKmMs0A7Uo3JeO76oJVjWMotKYiFl3d4HuuLJ0oejUt_yO-plTgY4GiJdP8bo8-tGZXPlwtd4/pub?gid=0&single=true&output=tsv';
 // ---------------------
 
 const contenedor = document.getElementById('catalogo-container');
@@ -12,14 +13,12 @@ fetch(GOOGLE_SHEET_URL)
 
         for (let i = 1; i < filas.length; i++) {
             
-            // Ignoramos la fila si está totalmente vacía
             if (!filas[i]) continue; 
 
-            const celdas = filas[i].split(',');
+            // --- ¡AQUÍ ESTÁ LA SOLUCIÓN! ---
+            // Cambiamos el separador de coma (,) a Tab (\t)
+            const celdas = filas[i].split('\t');
 
-            // --- ¡AQUÍ ESTÁ LA NUEVA VALIDACIÓN! ---
-            // Si la primera celda (tu SKU) está vacía o indefinida,
-            // nos saltamos esta fila por completo.
             if (!celdas[0] || celdas[0] === "") {
                 continue;
             }
