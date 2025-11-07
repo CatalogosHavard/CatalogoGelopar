@@ -61,7 +61,7 @@ fetch(GOOGLE_SHEET_URL)
                         
                         <div class="boton-grupo">
                             <h5 class="leyenda-boton">MAYORISTA SIN IVA 10.5%</h5>
-                            <span class="boton-info precio-boton">$ ${precio || 'N/A'}</span>
+                            <span class="boton-info precio-boton"> ${precio || 'N/A'}</span>
                         </div>
 
                     </div>
@@ -77,5 +77,6 @@ fetch(GOOGLE_SHEET_URL)
     console.error('¡Error al cargar el catálogo!', error);
     contenedor.innerHTML = '<p>Error al cargar productos. Intente más tarde.</p>';
   });
+
 
 
