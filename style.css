@@ -1,143 +1,129 @@
 /* Estilos generales */
 body {
-    font-family: Montserrat;, sans-serif;
+    font-family: Montserrat, sans-serif; /* <-- Corregido */
     margin: 0;
     background-color: #f4f4f4;
 }
 
 header {
-	
-	background-image: url("img/banner.svg");
-	/* Tu SVG */
+    background-image: url("img/banner.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    color: #FFFFFF;
+    padding: 20px 64px; /* <-- Simplificado */
+    text-align: center;
+    
+    /* Centrado vertical del H1 (opcional pero recomendado) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-    /* --- ¡LA SOLUCIÓN! --- */
-    /* 1. Evita que se repita */
-	background-repeat: no-repeat;
-	/* 2. (Recomendado) Le dice que se estire para cubrir 
-          el espacio sin deformarse. */
-	background-size: cover;
-	/* 3. (Recomendado) Lo centra en el header */
-	background-position: center;
-	/* (El resto de tus estilos: height, color, etc.) */
-	height: 250px;
-	color: white;
-	color: #FFFFFF;
-	padding-top: 150px;
-	padding-right: 64px;
-	padding-left: 64px;
-	padding-bottom: 0px;
-	text-align: center;
+header h1 {
+    /* (Puedes agregar estilos para el H1 aquí) */
+    /* background-color: rgba(0,0,0,0.3); /* Fondo semitransparente */
+    padding: 10px;
 }
 
 /* El contenedor principal */
 #catalogo-container {
-	max-width: 1200px;
-	margin: 20px auto; /* Centra el contenedor */
-	/* ¡La magia del diseño! Usa CSS Grid */
-	display: list-item;
-	/* Crea columnas automáticas de 250px */
-	grid-template-columns: repeat(auto-fill, minmax(250px,	1fr));
-	gap: 20px; /* Espacio entre tarjetas */
-}
-
-/* Estilo para CADA tarjeta de producto (la clase que pusimos en app.js) */
-.producto-card {
-	background-color: white;
-	border: 1px solid #ddd;
-	border-radius: 8px;
-	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-	/* --- ¡LA MAGIA DE FLEXBOX! --- */
-	display: flex;         /* Activa el modo "uno al lado del otro" */
-	align-items: center;   /* Centra verticalmente la img y el texto */
-	padding: auto;         /* Espacio interno en la tarjeta */
-	gap: 15px;             /* Un espacio entre la imagen y el texto */
-	text-align: left;      /* El texto ya no estará centrado */
-}
-
-/* 2. MODIFICÁ TUS REGLAS DE IMAGEN
-   Hacemos que la imagen ocupe una parte y el texto otra.
-*/
-.producto-card img {
-    width: 40%;          /* La imagen ocupa el 40% del ancho de la tarjeta */
-                         /* (Jugá con este número. Probá 50% o 30%) */
-    height: auto;        /* La altura se ajusta sola */
-    object-fit: cover;   /* Se asegura que la imagen cubra el espacio */
-    border-radius: 4px;  /* Bordes redondeados para la imagen */
+    max-width: 1200px;
+    margin: 20px auto;
     
-    /* ¡Importante! Borrá cualquier 'height: 150px' o 'max-width: 100%' 
-       que tuvieras antes en esta regla. */
+    /* --- Corrección Lógica --- */
+    /* Esto apila las tarjetas anchas una sobre otra */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre tarjetas */
 }
 
-/* 3. AGREGÁ ESTA NUEVA REGLA 
-   Esta regla es para el div que creaste en el app.js
-*/
+/* Estilo para CADA tarjeta de producto */
+.producto-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    padding: 15px; /* <-- Corregido (no se puede usar 'auto') */
+    gap: 15px;
+    text-align: left;
+}
+
+.producto-card img {
+    width: 40%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
 .producto-info {
-    flex: 1; /* Le dice al texto que "ocupe el resto del espacio disponible" */
+    flex: 1; /* Ocupa el resto del espacio */
 }
-/* --- AGREGÁ ESTOS ESTILOS NUEVOS --- */
 
-/* 1. Estilo para la nueva descripción */
+.producto-card h3 {
+    margin-top: 0;
+}
+
 .producto-info .descripcion {
     font-size: 0.9em;
     color: #555;
-    margin-bottom: 15px; /* Espacio antes de los botones */
+    margin-bottom: 15px;
 }
 
-/* 2. Contenedor para los "botones" */
+/* --- ESTILOS NUEVOS PARA LEYENDAS (Faltaban) --- */
+
+/* 1. El contenedor principal de los 3 grupos */
 .info-botones {
-    display: flex;       /* Pone los botones uno al lado del otro */
-    flex-wrap: wrap;     /* Si no entran, se acomodan abajo */
-    gap: 8px;            /* Espacio entre los botones */
+    display: flex;
+    justify-content: space-between; /* Reparte los 3 grupos */
+    text-align: center;
+    gap: 10px;
+    margin-top: 20px;
 }
 
-/* 3. Estilo base para CADA "botón" */
-.boton-info {
-    background-color: #f0f0f0; /* Fondo gris claro */
-    padding: 6px 12px;     /* Bordes redondeados para look de "píldora" */
+/* 2. Cada uno de los 3 grupos (Leyenda + Botón) */
+.boton-grupo {
+    flex: 1; /* Los 3 grupos ocupan el mismo espacio */
+    display: flex;
+    flex-direction: column; /* Pone la leyenda arriba y el botón abajo */
+    align-items: center;
+}
+
+/* 3. Estilo para la nueva leyenda (el h5) */
+.leyenda-boton {
+    margin: 0;
     font-size: 0.8em;
-    font-weight: bold;
-    color: #333;
+    color: #666;
+    text-transform: uppercase;
+    font-weight: normal;
 }
 
-/* 4. (Opcional) Colores diferentes para cada botón */
+/* 4. Estilo para el botón (ahora con margen) */
+.boton-info {
+    margin-top: 5px; /* Espacio entre leyenda y botón */
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+/* Tus colores de botones (están perfectos) */
 .stock-boton {
-    background-color: #5a5b5c; /* Un gr para el stock */
+    background-color: #5a5b5c;
     color: #ffffff;
 }
 .sku-boton {
-    background-color: #5a5b5c; /* Un gr para el SKU */
+    background-color: #5a5b5c;
     color: #ffffff;
 }
 .precio-boton {
-    background-color: #5a5b5c; /* Un gr para el precio */
+    background-color: #5a5b5c;
     color: #ffffff;
 }
 
-
-/* 4. (OPCIONAL) Ajustá los márgenes del texto que ahora están
-   alineados a la izquierda y no necesitan tanto margen superior.
-*/
-.producto-card h3 {
-    margin-top: 0; 
-}
-
-.producto-card .precio {
-	font-size: 1.3em;
-	font-weight: 300;
-	color: #007bff; /* Un color azul para el precio */
-	margin-top: 10px;
-	margin-right: 0;
-	margin-bottom: 10px;
-	background-color: transparent;
-}
-
-.producto-card .sku {
-    font-size: 0.9em;
-    color: #777;
-}
-
-
-
-
-
-
+/* --- REGLAS OBSOLETAS ELIMINADAS --- */
+/* (Las reglas para .producto-card .precio y .producto-card .sku 
+   se eliminaron porque fueron reemplazadas por los botones) */
