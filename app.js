@@ -43,12 +43,11 @@ fetch(GOOGLE_SHEET_URL)
                     <p class="descripcion">${descripcion || ''}</p> 
 
                     <div class="info-botones">
-                        <span class="boton-info precio-boton">$ ${precio || 'N/A'}</span>
-                        <span class="boton-info sku-boton"> ${sku || ''}</span>
-                        
                         <span class="boton-info stock-boton" id="stock-${skuLimpio}">
                             Stock: Consultando...
                         </span>
+                        <span class="boton-info sku-boton"> ${sku || ''}</span>
+                        <span class="boton-info precio-boton">$ ${precio || 'N/A'}</span>
                     </div>
                 </div>
             `;
