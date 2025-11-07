@@ -7,7 +7,7 @@ body {
 
 header {
 	
-	background-image: url(banner.svg);
+	background-image: url(/img/banner.svg);
 	/* Tu SVG */
 
     /* --- ¡LA SOLUCIÓN! --- */
@@ -100,20 +100,19 @@ header {
 }
 
 /* 4. (Opcional) Colores diferentes para cada botón */
+.stock-boton {
+    background-color: #5a5b5c; /* Un verde para el stock */
+    color: #ffffff;
+}
+.sku-boton {
+    background-color: #5a5b5cc; /* Un rosado para el SKU */
+    color: #ffffff;
+}
 .precio-boton {
     background-color: #5a5b5c; /* Un celeste para el precio */
     color: #ffffff;
 }
 
-.sku-boton {
-    background-color: #5a5b5cc; /* Un rosado para el SKU */
-    color: #ffffff;
-}
-
-.stock-boton {
-    background-color: #5a5b5c; /* Un verde para el stock */
-    color: #ffffff;
-}
 
 /* 4. (OPCIONAL) Ajustá los márgenes del texto que ahora están
    alineados a la izquierda y no necesitan tanto margen superior.
@@ -136,4 +135,5 @@ header {
     font-size: 0.9em;
     color: #777;
 }
+
 
