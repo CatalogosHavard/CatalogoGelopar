@@ -93,8 +93,7 @@ header {
 /* 3. Estilo base para CADA "botón" */
 .boton-info {
     background-color: #f0f0f0; /* Fondo gris claro */
-    padding: 6px 12px;
-    border-radius: 20px;       /* Bordes redondeados para look de "píldora" */
+    padding: 6px 12px;     /* Bordes redondeados para look de "píldora" */
     font-size: 0.8em;
     font-weight: bold;
     color: #333;
@@ -102,18 +101,18 @@ header {
 
 /* 4. (Opcional) Colores diferentes para cada botón */
 .precio-boton {
-    background-color: #e0f7fa; /* Un celeste para el precio */
-    color: #007bff;
+    background-color: #5a5b5c; /* Un celeste para el precio */
+    color: #ffffff;
 }
 
 .sku-boton {
-    background-color: #fce4ec; /* Un rosado para el SKU */
-    color: #c2185b;
+    background-color: #5a5b5cc; /* Un rosado para el SKU */
+    color: #ffffff;
 }
 
 .stock-boton {
-    background-color: #e8f5e9; /* Un verde para el stock */
-    color: #2e7d32;
+    background-color: #5a5b5c; /* Un verde para el stock */
+    color: #ffffff;
 }
 
 /* 4. (OPCIONAL) Ajustá los márgenes del texto que ahora están
@@ -137,3 +136,4 @@ header {
     font-size: 0.9em;
     color: #777;
 }
+
