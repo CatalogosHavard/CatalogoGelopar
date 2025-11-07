@@ -44,7 +44,7 @@ fetch(GOOGLE_SHEET_URL)
 
                     <div class="info-botones">
                         <span class="boton-info precio-boton">$ ${precio || 'N/A'}</span>
-                        <span class="boton-info sku-boton">SKU: ${sku || ''}</span>
+                        <span class="boton-info sku-boton"> ${sku || ''}</span>
                         
                         <span class="boton-info stock-boton" id="stock-${skuLimpio}">
                             Stock: Consultando...
@@ -60,3 +60,4 @@ fetch(GOOGLE_SHEET_URL)
     console.error('¡Error al cargar el catálogo!', error);
     contenedor.innerHTML = '<p>Error al cargar productos. Intente más tarde.</p>';
   });
+
