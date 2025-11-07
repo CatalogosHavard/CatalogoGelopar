@@ -65,6 +65,11 @@ header h1 {
 
 .producto-card h3 {
     margin-top: 0;
+    
+    /* --- LÍNEAS NUEVAS --- */
+    border-bottom: 2px solid #e74c3c; /* Línea roja (usá el color que quieras) */
+    padding-bottom: 10px;           /* El "margen" entre el título y la línea */
+    margin-bottom: 10px;          /* Un margen extra bajo la línea */
 }
 
 .producto-info .descripcion {
@@ -78,10 +83,20 @@ header h1 {
 /* 1. El contenedor principal de los 3 grupos */
 .info-botones {
     display: flex;
-    justify-content: space-between; /* Reparte los 3 grupos */
+    justify-content: space-between;
     text-align: center;
     gap: 10px;
-    margin-top: 20px;
+
+    /* --- ESTOS SON TUS DOS MÁRGENES --- */
+    
+    /* 1. Este es el "pequeño margen" entre la descripción y la línea */
+    margin-top: 15px; 
+
+    /* 2. LA LÍNEA ROJA */
+    border-top: 2px solid #e74c3c; 
+    
+    /* 3. Este es el margen que "se mantiene a la misma distancia de los botones" */
+    padding-top: 15px; 
 }
 
 /* 2. Cada uno de los 3 grupos (Leyenda + Botón) */
@@ -127,3 +142,4 @@ header h1 {
 /* --- REGLAS OBSOLETAS ELIMINADAS --- */
 /* (Las reglas para .producto-card .precio y .producto-card .sku 
    se eliminaron porque fueron reemplazadas por los botones) */
+
