@@ -38,8 +38,8 @@ fetch(GOOGLE_SHEET_URL)
                 ${imagenUrl ? `<img src="${imagenUrl}" alt="${producto || ''}">` : ''}
                 
                 <h3>${producto || ''}</h3>
-                <p class="precio">$ ${precio || 'N/A'}</p>
-                <p class="sku">SKU: ${sku || ''}</p>
+                <p class="precio"> ${precio || 'N/A'}</p>
+                <p class="sku"> ${sku || ''}</p>
             `;
 
             contenedor.appendChild(productoCard);
@@ -49,3 +49,4 @@ fetch(GOOGLE_SHEET_URL)
         console.error('¡Error al cargar el catálogo!', error);
         contenedor.innerHTML = '<p>Error al cargar productos. Intente más tarde.</p>';
     });
+
