@@ -101,15 +101,15 @@ header {
 
 /* 4. (Opcional) Colores diferentes para cada botón */
 .stock-boton {
-    background-color: #5a5b5c; /* Un verde para el stock */
+    background-color: #5a5b5c; /* Un gr para el stock */
     color: #ffffff;
 }
 .sku-boton {
-    background-color: #5a5b5cc; /* Un rosado para el SKU */
+    background-color: #5a5b5c; /* Un gr para el SKU */
     color: #ffffff;
 }
 .precio-boton {
-    background-color: #5a5b5c; /* Un celeste para el precio */
+    background-color: #5a5b5c; /* Un gr para el precio */
     color: #ffffff;
 }
 
@@ -135,5 +135,6 @@ header {
     font-size: 0.9em;
     color: #777;
 }
+
 
 
