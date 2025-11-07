@@ -1,6 +1,6 @@
 // --- ¡IMPORTANTE! ---
 // Pegá acá la URL de tu Google Sheet publicado como .csv
-const GOOGLE_SHEET_URL = 'URL_QUE_COPIASTE_DE_GOOGLE_SHEETS.csv';
+const GOOGLE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTzsalmKmMs0A7Uo3JeO76oJVjWMotKYiFl3d4HuuLJ0oejUt_yO-plTgY4GiJdP8bo8-tGZXPlwtd4/pub?output=csv';
 // ---------------------
 
 // 1. Seleccionamos el contenedor que creamos en el HTML
@@ -49,4 +49,5 @@ fetch(GOOGLE_SHEET_URL)
     .catch(error => {
         console.error('¡Error al cargar el catálogo!', error);
         contenedor.innerHTML = '<p>Error al cargar productos. Intente más tarde.</p>';
+
     });
