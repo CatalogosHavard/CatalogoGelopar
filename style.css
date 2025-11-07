@@ -7,7 +7,7 @@ body {
 
 header {
 	
-	background-image: url(/img/banner.svg);
+	background-image: url("img/banner.svg");
 	/* Tu SVG */
 
     /* --- ¡LA SOLUCIÓN! --- */
@@ -135,6 +135,7 @@ header {
     font-size: 0.9em;
     color: #777;
 }
+
 
 
 
