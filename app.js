@@ -6,47 +6,57 @@ const GOOGLE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTzsal
 const contenedor = document.getElementById('catalogo-container');
 
 fetch(GOOGLE_SHEET_URL)
-    .then(respuesta => respuesta.text())
-    .then(csvTexto => {
-        contenedor.innerHTML = ''; 
-        const filas = csvTexto.split('\n');
+  .then(respuesta => respuesta.text())
+  .then(csvTexto => {
+    contenedor.innerHTML = '';
+    const filas = csvTexto.split('\n');
 
-        for (let i = 1; i < filas.length; i++) {
-            
-            if (!filas[i]) continue; 
-            const celdas = filas[i].split('\t'); // Separador por Tab
+    for (let i = 1; i < filas.length; i++) {
 
-            if (!celdas[0] || celdas[0] === "") {
-                continue;
-            }
-            
-            // Asignamos las variables (asegurate que el orden sea correcto)
-            const sku = celdas[0];
-            const producto = celdas[1];
-            const precio = celdas[2];
-            
-            // --- ¡LÍNEA 1 DESCOMENTADA! ---
-            // Asumimos que la Columna 4 (índice 3) es la URL de la imagen
-            const imagenUrl = celdas[3];
+      if (!filas[i]) continue;
+      const celdas = filas[i].split('\t'); // Separador por Tab
 
-            // Creamos la tarjeta del producto
-            const productoCard = document.createElement('div');
-            productoCard.className = 'producto-card'; 
+      if (!celdas[0] || celdas[0] === "") {
+        continue;
+      }
 
-            productoCard.innerHTML = `
+      // --- CAMBIO 1: Ya no leemos el stock de celdas[5] ---
+      const sku = celdas[0];
+      const producto = celdas[1];
+      const precio = celdas[2];
+      const imagenUrl = celdas[3];
+      const descripcion = celdas[4]; // Columna E
+
+      // Creamos la tarjeta del producto
+      const productoCard = document.createElement('div');
+      productoCard.className = 'producto-card';
+
+      // --- CAMBIO 2: El 'sku' se usa para el ID del botón de stock ---
+      const skuLimpio = sku.replace(/[^a-zA-Z0-9]/g, '-'); // Limpia el SKU para usarlo como ID
+
+      productoCard.innerHTML = `
                 
                 ${imagenUrl ? `<img src="${imagenUrl}" alt="${producto || ''}">` : ''}
                 
-                <h3>${producto || ''}</h3>
-                <p class="precio"> ${precio || 'N/A'}</p>
-                <p class="sku"> ${sku || ''}</p>
+                <div class="producto-info">
+                    <h3>${producto || ''}</h3>
+                    <p class="descripcion">${descripcion || ''}</p> 
+
+                    <div class="info-botones">
+                        <span class="boton-info precio-boton">$ ${precio || 'N/A'}</span>
+                        <span class="boton-info sku-boton">SKU: ${sku || ''}</span>
+                        
+                        <span class="boton-info stock-boton" id="stock-${skuLimpio}">
+                            Stock: Consultando...
+                        </span>
+                    </div>
+                </div>
             `;
 
-            contenedor.appendChild(productoCard);
-        }
-    })
-    .catch(error => {
-        console.error('¡Error al cargar el catálogo!', error);
-        contenedor.innerHTML = '<p>Error al cargar productos. Intente más tarde.</p>';
-    });
-
+      contenedor.appendChild(productoCard);
+    }
+  })
+  .catch(error => {
+    console.error('¡Error al cargar el catálogo!', error);
+    contenedor.innerHTML = '<p>Error al cargar productos. Intente más tarde.</p>';
+  });
