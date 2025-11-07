@@ -32,9 +32,12 @@ fetch(GOOGLE_SHEET_URL)
       productoCard.className = 'producto-card';
 
       // --- CAMBIO 2: El 'sku' se usa para el ID del botón de stock ---
-      const skuLimpio = sku.replace(/[^a-zA-Z0-9]/g, '-'); // Limpia el SKU para usarlo como ID
+      // ... (código anterior) ...
 
-      productoCard.innerHTML = `
+            // --- CAMBIO 2: El 'sku' se usa para el ID del botón de stock ---
+            const skuLimpio = sku.replace(/[^a-zA-Z0-9]/g, '-'); // Limpia el SKU para usarlo como ID
+
+            productoCard.innerHTML = `
                 
                 ${imagenUrl ? `<img src="${imagenUrl}" alt="${producto || ''}">` : ''}
                 
@@ -43,14 +46,29 @@ fetch(GOOGLE_SHEET_URL)
                     <p class="descripcion">${descripcion || ''}</p> 
 
                     <div class="info-botones">
-                        <span class="boton-info stock-boton" id="stock-${skuLimpio}">
-                            Stock: Consultando...
-                        </span>
-                        <span class="boton-info sku-boton"> ${sku || ''}</span>
-                        <span class="boton-info precio-boton">$ ${precio || 'N/A'}</span>
+                        
+                        <div class="boton-grupo">
+                            <h5 class="leyenda-boton">Stock</h5>
+                            <span class="boton-info stock-boton" id="stock-${skuLimpio}">
+                                Consultando...
+                            </span>
+                        </div>
+
+                        <div class="boton-grupo">
+                            <h5 class="leyenda-boton">SKU</h5>
+                            <span class="boton-info sku-boton">${sku || ''}</span>
+                        </div>
+                        
+                        <div class="boton-grupo">
+                            <h5 class="leyenda-boton">MAYORISTA SIN IVA 10.5%</h5>
+                            <span class="boton-info precio-boton">$ ${precio || 'N/A'}</span>
+                        </div>
+
                     </div>
                 </div>
             `;
+
+            // ... (resto del código) ...
 
       contenedor.appendChild(productoCard);
     }
@@ -59,4 +77,5 @@ fetch(GOOGLE_SHEET_URL)
     console.error('¡Error al cargar el catálogo!', error);
     contenedor.innerHTML = '<p>Error al cargar productos. Intente más tarde.</p>';
   });
+
 
