@@ -1,6 +1,6 @@
 // --- ¡IMPORTANTE! ---
 // Usá tu URL que termina en output=tsv
-const GOOGLE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTzsalmKmMs0A7Uo3JeO76oJVjWMotKYiFl3d4HuuLJ0oejUt_yO-plTgY4GiJdP8bo8-tGZXPlwtd4/pub?output=tsv';
+const GOOGLE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTzsalmKmMs0A7Uo3JeO76oJVjWMotKYiFl3d4HuuLJ0oejUt_yO-plTgY4GiJdP8bo8-tGZXPlwtd4/pub?gid=478297482&single=true&output=tsv';
 const API_STOCK_URL = 'https://script.google.com/macros/s/AKfycbznY4_l7PbrT0VhyKVP63KhJHQX21pOUKBkahp6DaFZD4Yr0g9iugrnxSHCL-mLcCENQQ/exec';
 // ---------------------
 
@@ -113,5 +113,6 @@ fetch(GOOGLE_SHEET_URL)
         console.error('¡Error al cargar el catálogo!', error);
         contenedor.innerHTML = '<p>Error al cargar productos. Intente más tarde.</p>';
     });
+
 
 
