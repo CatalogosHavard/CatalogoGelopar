@@ -114,3 +114,4 @@ fetch(GOOGLE_SHEET_URL)
         contenedor.innerHTML = '<p>Error al cargar productos. Intente más tarde.</p>';
     });
 
+
