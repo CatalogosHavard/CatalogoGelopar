@@ -113,3 +113,4 @@ fetch(GOOGLE_SHEET_URL)
         console.error('¡Error al cargar el catálogo!', error);
         contenedor.innerHTML = '<p>Error al cargar productos. Intente más tarde.</p>';
     });
+
